@@ -9,7 +9,13 @@ public class Health : MonoBehaviour
     public static int healthT = 100;
     //Максимальное значение здоровья
     public int maxHealth;
+    private Animator anim;
 
+
+    void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
     //Функция получения урона
     public void TakeHit(int damage)
     {
@@ -19,16 +25,22 @@ public class Health : MonoBehaviour
         {
             healthT = health;
         }
+
         //Если здоровье меньше 0 - уничтожить объект на котором весит этот скрипт
         if (health <= 0)
         {
             // if (hil[0] != null) { 
             //    Debug.Log("HilSpawn");
+            if (gameObject.tag == "Player")
+            {
+                anim.SetBool("smert", true);
+            }
+
             if (gameObject.tag == "Vrag") 
             { 
                 GetComponent<EnewyFollow>().SpawnHil();
+                Destroy(gameObject);
             }
-            Destroy(gameObject);
         }
             
     }
@@ -48,5 +60,15 @@ public class Health : MonoBehaviour
             healthT = health;
         }
 
+    }
+
+    public void Destroe()
+    {
+        Destroy(gameObject);
+    }
+
+    public void FFF()
+    {
+        anim.SetBool("uron", false);
     }
 }

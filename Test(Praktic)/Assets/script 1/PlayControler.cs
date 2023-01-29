@@ -53,6 +53,24 @@ public class PlayControler : MonoBehaviour
         {
             anim.SetBool("isrunl", false);
         }
+
+        if (hormoveInputer > 0)
+        {
+            anim.SetBool("isrunP", true);
+        }
+        else
+        {
+            anim.SetBool("isrunP", false);
+        }
+
+        if (vermoveInputer < 0)
+        {
+            anim.SetBool("isrunPER", true);
+        }
+        else
+        {
+            anim.SetBool("isrunPER", false);
+        }
     }
     public void SpawnPoint()
     {

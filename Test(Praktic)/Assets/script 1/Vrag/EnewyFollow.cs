@@ -12,7 +12,7 @@ public class EnewyFollow : MonoBehaviour
     private float stopTime;
     public float startStopTime;
     public float Normalspeed;
-
+    private Animator anim;
     private float timeBtwAttack;
     public float startTimeBtwAttack;
     public float cd = 2f;
@@ -22,6 +22,7 @@ public class EnewyFollow : MonoBehaviour
 
     void Start()
     {
+        anim = GetComponent<Animator>();
         // тригер на игрока с тегом плеер 
         target = 
             GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -34,7 +35,7 @@ public class EnewyFollow : MonoBehaviour
     void Update()
     {
         // Растояние которое будет подерживаться от игрока
-        if(Vector2.Distance(transform.position, target.position) > stoppingDistance)
+        if (Vector2.Distance(transform.position, target.position) > stoppingDistance)
         {
             transform.position =
                 Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
@@ -58,6 +59,7 @@ public class EnewyFollow : MonoBehaviour
             if (!isCD)
             {
                 isCD = true;
+                anim.SetBool("uron", true);
                 StartCoroutine("CoolDown");
                 //Берём у этого объекта компонент Health (Скрипт который на нём висит)
                 other.gameObject.GetComponent<Health>().TakeHit(damager);
@@ -72,6 +74,7 @@ public class EnewyFollow : MonoBehaviour
             if (!isCD) 
             {
                 isCD = true;
+                anim.SetBool("uron", true);
                 StartCoroutine("CoolDown");
             //Берём у этого объекта компонент Health (Скрипт который на нём висит)
                 other.gameObject.GetComponent<Health>().TakeHit(damager);
@@ -87,6 +90,7 @@ public class EnewyFollow : MonoBehaviour
         isCD = true;
         yield return new WaitForSeconds(cd);
         isCD = false;
+        anim.SetBool("uron", false);
     }
 
     public void SpawnHil()
