@@ -4,22 +4,41 @@ using TMPro.EditorUtilities;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Shet : MonoBehaviour
 {
-    public Text text;
+    public TextMeshProUGUI text;
+    public TextMeshProUGUI hpboss;
 
     // Start is called before the first frame update
-    void Update()
+    void FixedUpdate()
     {
-        Heal();
+        if (gameObject.tag == "Player")
+        {
+            Heal();
+        }else if (gameObject.tag == "Boss")
+        {
+            healBoss();
+        }
+
     }
     void Heal()
     {
-        text.text = "Рассудок " + Health.healthT + "%";
-        if (Health.healthT == 0)
+        text.text = $"HP  : {Health.healthPlay}%";
+        if (Health.healthPlay == 0)
         {
             return;
         }
     }
+    
+    void healBoss()
+    {
+        hpboss.text = "HP :" + Health.healthBoss + "%";
+        if (Health.healthBoss == 0)
+        {
+            return;
+        }
+    }
+    
 }

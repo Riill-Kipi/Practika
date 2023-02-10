@@ -6,7 +6,8 @@ public class Health : MonoBehaviour
 {
     //Значение здоровья
     public int health;
-    public static int healthT = 100;
+    public static int healthPlay = 100;
+    public static int healthBoss;
     //Максимальное значение здоровья
     public int maxHealth;
     private Animator anim;
@@ -15,6 +16,7 @@ public class Health : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        TakeHit(0);
     }
     //Функция получения урона
     public void TakeHit(int damage)
@@ -23,7 +25,12 @@ public class Health : MonoBehaviour
 
         if (gameObject.tag == "Player")
         {
-            healthT = health;
+            healthPlay = health;
+        }
+
+        if (gameObject.tag == "Boss")
+        {
+            healthBoss = health;
         }
 
         //Если здоровье меньше 0 - уничтожить объект на котором весит этот скрипт
@@ -57,7 +64,7 @@ public class Health : MonoBehaviour
 
         if (gameObject.tag == "Player")
         {
-            healthT = health;
+            healthPlay = health;
         }
 
     }

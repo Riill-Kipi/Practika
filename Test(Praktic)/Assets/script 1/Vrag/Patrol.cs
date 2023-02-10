@@ -9,6 +9,7 @@ public class Patrol : MonoBehaviour
     private int randomSpot;
     private float waitTime;
     public float startWaitTime;
+    
     void Start()
     {
         waitTime = startWaitTime;
@@ -32,5 +33,49 @@ public class Patrol : MonoBehaviour
                 waitTime -= Time.deltaTime;
             }
         }
+
+        //Flip();
+        
     }
+
+    /*
+    void Flip()
+    {
+        if ( Vector2.Distance > 0)
+        {
+            Debug.Log("Idu");
+        }
+        else
+        {
+            
+        }
+
+        if (napravlenie < 0)
+        {
+            
+        }
+        else
+        {
+            
+        }
+
+        if (napravlenie > 0)
+        {
+            
+        }
+        else
+        {
+            
+        }
+
+        if (napravlenie < 0)
+        {
+            
+        }
+        else
+        {
+            //anim.SetBool("isrunPER", false);
+        }
+    }
+    */
 }
