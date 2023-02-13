@@ -11,6 +11,8 @@ public class Health : MonoBehaviour
     //Максимальное значение здоровья
     public int maxHealth;
     private Animator anim;
+    public GameObject GameMenu;
+    public GameObject VinMenu;
 
 
     void Start()
@@ -31,6 +33,7 @@ public class Health : MonoBehaviour
         if (gameObject.tag == "Boss")
         {
             healthBoss = health;
+            
         }
 
         //Если здоровье меньше 0 - уничтожить объект на котором весит этот скрипт
@@ -46,6 +49,12 @@ public class Health : MonoBehaviour
             if (gameObject.tag == "Vrag") 
             { 
                 GetComponent<EnewyFollow>().SpawnHil();
+                Destroy(gameObject);
+            }
+            if (gameObject.tag == "Boss")
+            {
+                VinMenu.SetActive(true);
+                Time.timeScale = 0;
                 Destroy(gameObject);
             }
         }
@@ -72,6 +81,8 @@ public class Health : MonoBehaviour
     public void Destroe()
     {
         Destroy(gameObject);
+        Time.timeScale = 0;
+        GameMenu.SetActive(true);
     }
 
     public void FFF()

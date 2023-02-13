@@ -10,34 +10,43 @@ public class Shet : MonoBehaviour
 {
     public TextMeshProUGUI text;
     public TextMeshProUGUI hpboss;
-
+    //public bool thisIsBoss;
     // Start is called before the first frame update
     void FixedUpdate()
     {
-        if (gameObject.tag == "Player")
-        {
-            Heal();
-        }else if (gameObject.tag == "Boss")
-        {
-            healBoss();
-        }
+           
+        Heal();
+        healBoss();
+      
 
     }
+   // OnCollison2DEnter(Collider2D other)
+   // {
+   //     if (gameObject.tag == "Player") 
+   //     {
+   //         Heal();
+   //     }
+   //     else if (gameObject.tag == "Boss")
+   //     {
+   //         healBoss();
+   //     }
+   // }
     void Heal()
     {
         text.text = $"HP  : {Health.healthPlay}%";
-        if (Health.healthPlay == 0)
+        if (Health.healthPlay <= 0)
         {
-            return;
+            text.enabled = false;
         }
     }
     
     void healBoss()
     {
+        hpboss.enabled = true;
         hpboss.text = "HP :" + Health.healthBoss + "%";
-        if (Health.healthBoss == 0)
+        if (Health.healthBoss <= 0)
         {
-            return;
+            hpboss.enabled = false;
         }
     }
     

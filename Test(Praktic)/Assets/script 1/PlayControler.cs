@@ -11,6 +11,7 @@ public class PlayControler : MonoBehaviour
     private float hormoveInputer;
     private float vermoveInputer;
     public GameObject Player;
+    public GameObject attackShar;
     public Transform[] moveSpots;
 
     void Start()
@@ -27,6 +28,20 @@ public class PlayControler : MonoBehaviour
         Vector2 moveImput = new Vector2(hormoveInputer, vermoveInputer);
         moveVelocity = moveImput * speed;
         Flip();
+        if(hormoveInputer > 0){
+            attackShar.transform.position = new Vector2(transform.position.x,transform.position.y) + new Vector2(0.512f,0);
+        }
+        if(hormoveInputer < 0){
+            attackShar.transform.position = new Vector2(transform.position.x,transform.position.y) + new Vector2(-0.512f,0);
+        }
+
+        if(vermoveInputer > 0){
+            attackShar.transform.position = new Vector2(transform.position.x,transform.position.y) + new Vector2(0, 0.59f);
+        }
+        if(vermoveInputer < 0){
+            attackShar.transform.position = new Vector2(transform.position.x,transform.position.y) + new Vector2(0, -0.59f);
+        }
+        
     }
 
     void FixedUpdate()

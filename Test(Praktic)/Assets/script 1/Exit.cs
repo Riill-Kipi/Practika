@@ -14,4 +14,10 @@ public class Exit : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void Prodol(){
+         SceneManager.LoadScene(0);
+         Time.timeScale = 1;
+    }
+
 }
