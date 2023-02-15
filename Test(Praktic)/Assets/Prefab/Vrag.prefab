@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5425246337542285532}
   - component: {fileID: 5425246337542285528}
   - component: {fileID: 5425246337542285529}
-  - component: {fileID: 5425246337542285531}
+  - component: {fileID: 252727745395112920}
   - component: {fileID: 5425246337542285530}
   - component: {fileID: 5425246337542285607}
   m_Layer: 7
@@ -29,7 +29,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5425246337542285534}
-  m_LocalRotation: {x: -0, y: -0, z: -1, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.621361, y: 0.90199375, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -131,7 +131,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.95
---- !u!114 &5425246337542285531
+--- !u!114 &252727745395112920
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,13 +140,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5425246337542285534}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11fb1a05d19bbca4e9caf2c1ec73424d, type: 3}
+  m_Script: {fileID: 11500000, guid: 64e0f892d26714042a8f8c509b807738, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
-  maxHealth: 50
-  GameMenu: {fileID: 0}
-  VinMenu: {fileID: 0}
+  healvrag: 50
+  maxHealth: 0
 --- !u!114 &5425246337542285530
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -15,7 +15,7 @@ public class Shet : MonoBehaviour
     void FixedUpdate()
     {
            
-        Heal();
+        //Heal();
         healBoss();
       
 
@@ -31,6 +31,7 @@ public class Shet : MonoBehaviour
    //         healBoss();
    //     }
    // }
+   /*
     void Heal()
     {
         text.text = $"HP  : {Health.healthPlay}%";
@@ -39,15 +40,17 @@ public class Shet : MonoBehaviour
             text.enabled = false;
         }
     }
+    */
     
     void healBoss()
     {
         hpboss.enabled = true;
-        hpboss.text = "HP :" + Health.healthBoss + "%";
-        if (Health.healthBoss <= 0)
+        hpboss.text = "HP :" + healthVrag.healthBoss + "%";
+        if (healthVrag.healthBoss <= 0)
         {
             hpboss.enabled = false;
         }
     }
+    
     
 }

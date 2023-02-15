@@ -22,6 +22,11 @@ public class CollisionDamage : MonoBehaviour
                 Health health = coll.gameObject.GetComponent<Health>();
                 //И вызываем функцию получения урона, в агрументе переменная урона
                 health.TakeHit(collisionDamage);
+                ///coll.gameObject.GetComponent<healthVrag>().DamtdgVrag(collisionDamage);
+                 //  healthVrag healvrag = coll.gameObject.GetComponent<healthVrag>();
+                   // healvrag.DamtdgVrag(collisionDamage);
+
+
             }
        }
     }

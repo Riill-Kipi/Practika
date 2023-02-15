@@ -39,7 +39,7 @@ public class PlayerAttac : MonoBehaviour
                 Physics2D.OverlapCircleAll(attackPos.position, attackRange, enemy);
         for (int i = 0; i < enemis.Length; i++)
         {
-            enemis[i].GetComponent<Health>().TakeHit(damaget);
+            enemis[i].GetComponent<healthVrag>().DamtdgVrag(damaget);
         }
         
     }
